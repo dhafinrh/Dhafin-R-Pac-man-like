@@ -2,18 +2,30 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody rb;
-    private float speed;
+    private Rigidbody _rigidBody;
+    [SerializeField] private float _speed = 100;
+    [SerializeField] private Camera _camera; // Tambahkan kamera yang digunakan untuk orientasi
+
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        _rigidBody = GetComponent<Rigidbody>();
     }
-
-    void Update()
-    {          
+    
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+    
+    private void Update()
+    {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(horizontal, 0, vertical);
-        rb.velocity = movement.normalized * speed * Time.deltaTime;
+
+        Vector3 inputDirection = new Vector3(horizontal, 0, vertical);
+        Quaternion rotation = Quaternion.Euler(0, _camera.transform.eulerAngles.y, 0);
+        Vector3 moveDirection = rotation * inputDirection;
+
+        _rigidBody.velocity = moveDirection.normalized * _speed * Time.deltaTime;
     }
 }
