@@ -1,14 +1,15 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody _rigidBody;
-    [SerializeField] private float _speed = 100;
+    private Rigidbody rb;
+    [FormerlySerializedAs("_speed")] [SerializeField] private float speed = 100;
     [SerializeField] private Camera _camera; 
 
     private void Awake()
     {
-        _rigidBody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
     
     private void Start()
@@ -22,12 +23,22 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            speed *= 2;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speed /= 2;
+        }
+        
+
         Vector3 inputDirection = new Vector3(horizontal, 0, vertical);
         
         Quaternion rotation = Quaternion.Euler(0, _camera.transform.eulerAngles.y, 0);
         
         Vector3 moveDirection = rotation * inputDirection;
 
-        _rigidBody.velocity = moveDirection * _speed * Time.fixedDeltaTime;
+        rb.velocity = moveDirection * (speed * Time.fixedDeltaTime);
     }
 }
