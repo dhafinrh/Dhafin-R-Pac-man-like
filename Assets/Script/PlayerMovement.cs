@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
-    [FormerlySerializedAs("_speed")] [SerializeField] private float speed = 100;
+    [SerializeField] private float speed = 100;
     [SerializeField] private Camera _camera; 
 
     private void Awake()
