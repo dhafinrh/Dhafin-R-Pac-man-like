@@ -4,6 +4,8 @@ using UnityEngine;
 public class PickableManager : MonoBehaviour
     {
        [SerializeField] private List<Pickable> pickableList = new List<Pickable>();
+       [SerializeField] private Player player;
+       
         private void Start()
         {
             InitPickableList();
@@ -17,13 +19,17 @@ public class PickableManager : MonoBehaviour
                 pickableList.Add(pickableObjects[i]);
                 pickableObjects[i].OnPicked += OnPickablePicked;
             }
-            Debug.Log("Pickable List: "+pickableList.Count);
         }
         private void OnPickablePicked(Pickable pickable)
         {
             pickableList.Remove(pickable);
-                Debug.Log("Removing" + pickable.name);
-                
+
+            if (pickable.PickableType == PickableTypes.PowerUp)
+            {
+                player.PickPowerUp();
+                Debug.Log("PowerUp PickedUp!");
+            }
+            
             if (pickableList.Count <= 0)
             {
                 Debug.Log("Win");

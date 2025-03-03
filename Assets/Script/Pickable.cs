@@ -3,8 +3,14 @@ using UnityEngine;
 
 public class Pickable : MonoBehaviour
 {
-    [SerializeField] private PickableType pickableType;
+    [SerializeField] private PickableTypes pickableType;
     public Action<Pickable> OnPicked;
+
+    public PickableTypes PickableType
+    {
+        get => pickableType;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

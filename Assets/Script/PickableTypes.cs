@@ -1,4 +1,4 @@
-public enum PickableType
+public enum PickableTypes
 { 
         Coin,
         PowerUp
