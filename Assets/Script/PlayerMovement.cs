@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
     [SerializeField] private float speed = 100;
-    [SerializeField] private Camera _camera; 
+    [SerializeField] private Camera playerCamera;
 
     private void Awake()
     {
@@ -35,10 +34,10 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 inputDirection = new Vector3(horizontal, 0, vertical);
         
-        Quaternion rotation = Quaternion.Euler(0, _camera.transform.eulerAngles.y, 0);
+        Quaternion rotation = Quaternion.Euler(0, playerCamera.transform.eulerAngles.y, 0);
         
         Vector3 moveDirection = rotation * inputDirection;
 
-        rb.velocity = moveDirection * (speed * Time.fixedDeltaTime);
+        rb.velocity = moveDirection * speed * Time.deltaTime;
     }
 }
