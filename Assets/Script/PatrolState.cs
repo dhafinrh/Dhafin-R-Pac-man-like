@@ -9,15 +9,16 @@ public class PatrolState : IBaseState
     public void EnterState(Enemy enemy)
     {
         isMoving = false;
+
+        if (enemy != null && enemy.animator != null)
+            enemy.animator.SetTrigger("PatrolState");
     }
 
     public void UpdateState(Enemy enemy)
     {
         if (Vector3.Distance(enemy.transform.position, enemy.Player.transform.position) < enemy.ChaseDistance)
-        {
             enemy.SwitchState(enemy.chaseState);
-        }
-        
+
         if (!isMoving)
         {
             isMoving = true;
@@ -27,10 +28,7 @@ public class PatrolState : IBaseState
         }
         else
         {
-            if (Vector3.Distance(currentDestination, enemy.transform.position) <= 1f)
-            {
-                isMoving = false;
-            }
+            if (Vector3.Distance(currentDestination, enemy.transform.position) <= 1f) isMoving = false;
         }
     }
 

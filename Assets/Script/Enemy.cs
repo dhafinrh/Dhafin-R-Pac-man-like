@@ -1,31 +1,34 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
-using TMPro;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private List<Transform> waypoints = new List<Transform>();
+    [SerializeField] private List<Transform> waypoints = new();
     [SerializeField] private float chaseDistance;
     [SerializeField] private Player player;
-    [SerializeField] private TMP_Text stateText; 
+    [SerializeField] private TMP_Text stateText;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public NavMeshAgent enemyAgent;
 
     private IBaseState currentState;
 
-    [HideInInspector] public PatrolState patrolState = new PatrolState();
-    [HideInInspector] public ChaseState chaseState = new ChaseState();
-    [HideInInspector] public RetreatState retreatState = new RetreatState();
+    [HideInInspector] public ChaseState chaseState = new();
+    [HideInInspector] public PatrolState patrolState = new();
+    [HideInInspector] public RetreatState retreatState = new();
 
-    public NavMeshAgent enemyAgent;
-    public List<Transform> Waypoints { get => waypoints; }
-    public Player Player { get => player; }
-    public float ChaseDistance { get => chaseDistance; }
+    public List<Transform> Waypoints => waypoints;
+    public Player Player => player;
+    public float ChaseDistance => chaseDistance;
 
     public void Awake()
     {
+        animator = GetComponent<Animator>();
+        enemyAgent = GetComponent<NavMeshAgent>();
+
         currentState = patrolState;
         currentState.EnterState(this);
-        enemyAgent = GetComponent<NavMeshAgent>();
         UpdateStateText();
     }
 
@@ -40,10 +43,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (currentState != null)
-        {
-            currentState.UpdateState(this);
-        }
+        if (currentState != null) currentState.UpdateState(this);
     }
 
     public void SwitchState(IBaseState newState)
@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
         currentState.ExitState(this);
         currentState = newState;
         currentState.EnterState(this);
-        
+
         UpdateStateText();
     }
 
@@ -64,12 +64,25 @@ public class Enemy : MonoBehaviour
     {
         SwitchState(patrolState);
     }
-    
+
     private void UpdateStateText()
     {
-        if (stateText != null)
+        if (stateText != null) stateText.text = "Current State: " + currentState.GetType().Name;
+    }
+
+    public void Dead()
+    {
+        Destroy(gameObject);
+    }
+    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(currentState != retreatState)
         {
-            stateText.text = "Current State: " + currentState.GetType().Name;
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                collision.gameObject.GetComponent<Player>().Dead();
+            }
         }
     }
 }

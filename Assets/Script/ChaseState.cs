@@ -4,6 +4,8 @@ public class ChaseState : IBaseState
 {
     public void EnterState(Enemy enemy)
     {
+        if (enemy != null && enemy.animator != null)
+            enemy.animator.SetTrigger("ChaseState");
     }
 
     public void UpdateState(Enemy enemy)
