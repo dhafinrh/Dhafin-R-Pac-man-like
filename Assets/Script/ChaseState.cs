@@ -16,7 +16,9 @@ public class ChaseState : IBaseState
 
             enemy.enemyAgent.destination = enemy.Player.transform.position;
             if (Vector3.Distance(enemy.transform.position, enemy.Player.transform.position) > enemy.ChaseDistance)
+            {
                 enemy.SwitchState(enemy.patrolState);
+            }
         }
     }
 

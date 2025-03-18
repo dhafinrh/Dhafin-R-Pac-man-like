@@ -9,9 +9,10 @@ public class PatrolState : IBaseState
     public void EnterState(Enemy enemy)
     {
         isMoving = false;
-
         if (enemy != null && enemy.animator != null)
-            enemy.animator.SetTrigger("PatrolState");
+        {
+             enemy.animator.SetTrigger("PatrolState");
+        }
     }
 
     public void UpdateState(Enemy enemy)

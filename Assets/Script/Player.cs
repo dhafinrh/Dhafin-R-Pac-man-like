@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -93,16 +94,8 @@ public class Player : MonoBehaviour
         {
             health = 0;
             Debug.Log("Lose");
-            LoseGame();
+            SceneManager.LoadScene("LoseScreen");        
         }
         UpdateUI();
-    }
-    
-    public void LoseGame()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        Time.timeScale = 0;
-        loseUI.SetActive(true);
     }
 }

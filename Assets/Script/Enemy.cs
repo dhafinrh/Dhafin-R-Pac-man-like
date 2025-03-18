@@ -82,6 +82,7 @@ public class Enemy : MonoBehaviour
             if (collision.gameObject.CompareTag("Player"))
             {
                 collision.gameObject.GetComponent<Player>().Dead();
+                SwitchState(patrolState);
             }
         }
     }

@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -9,22 +8,27 @@ public class ScoreManager : MonoBehaviour
 
     private int score;
 
-    private void Start()
+    private void Awake()
     {
         score = 0;
         maxScore = 0;
+    }
+
+    private void Start()
+    {
         UpdateUI();
     }
 
     public void UpdateUI()
     {
-        scoreText.text = "Score: " + score + " / " + maxScore;
+        scoreText.text = "Score: " + score + "/" + maxScore;
     }
 
     public void SetMaxScore(int value)
     {
         maxScore = value;
         UpdateUI();
+        Debug.Log("Update MaxScore : " + maxScore);
     }
 
     public void AddScore(int value)
