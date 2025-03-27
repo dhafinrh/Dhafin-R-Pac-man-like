@@ -1,0 +1,38 @@
+using UnityEngine;
+
+public class PatrolState : IBaseState
+{
+    private Vector3 currentDestination;
+    private int index;
+    private bool isMoving;
+
+    public void EnterState(Enemy enemy, Animator animator)
+    {
+        isMoving = false;
+        animator.SetBool("isRunning", false);
+    }
+
+    public void UpdateState(Enemy enemy)
+    {
+        if (Vector3.Distance(enemy.transform.position, enemy.PlayerMovement.transform.position) < enemy.ChaseDistance)
+            enemy.SwitchState(enemy.chaseState);
+
+        if (!isMoving)
+        {
+            isMoving = true;
+            var newIndex = Random.Range(0, enemy.Waypoints.Count);
+            currentDestination = enemy.Waypoints[newIndex].position;
+            enemy.enemyAgent.destination = currentDestination;
+            enemy.enemyAgent.speed = 2;
+        }
+
+        else
+        {
+            if (Vector3.Distance(currentDestination, enemy.transform.position) <= 1f) isMoving = false;
+        }
+    }
+
+    public void ExitState(Enemy enemy)
+    {
+    }
+}

@@ -1,0 +1,44 @@
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
+
+public class PickableManager : MonoBehaviour
+{
+    [SerializeField] private List<Pickable> pickableList = new();
+    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private GameUIManager scoreManager;
+
+    private void Start()
+    {
+        InitPickableList();
+    }
+
+    private void InitPickableList()
+    {
+        var pickableObjects = FindObjectsOfType<Pickable>();
+        for (var i = 0; i < pickableObjects.Length; i++)
+        {
+            pickableList.Add(pickableObjects[i]);
+            pickableObjects[i].OnPicked += OnPickablePicked;
+        }
+
+        scoreManager.SetMaxScore(pickableList.Count);
+        Debug.Log(pickableList.Count);
+    }
+
+    private void OnPickablePicked(Pickable pickable)
+    {
+        pickableList.Remove(pickable);
+
+        if (pickable.PickableType == PickableTypes.PowerUp)
+        {
+            playerMovement.PickPowerUp();
+            Debug.Log("PowerUp PickedUp!");
+        }
+
+        if (scoreManager != null) scoreManager.AddScore(1);
+
+        if (pickableList.Count <= 0) SceneManager.LoadScene("WinScreen");
+    }
+}

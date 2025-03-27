@@ -1,0 +1,394 @@
+fileFormatVersion: 2
+guid: 647eeae7c4edaa744a317e125458a995
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body
+    second: {fileID: 2100000, guid: b0aee5e3d14daa44dbd9ba726b4da842, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bodyacc
+    second: {fileID: 2100000, guid: 44073784cd785074bb4077f485414d8f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: boots
+    second: {fileID: 2100000, guid: 919440b42b480bb45957db072932abce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bracelet
+    second: {fileID: 2100000, guid: 00aebee00879be646b9918ce3a72c8a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyelashes
+    second: {fileID: 2100000, guid: 7d13dfba885c563498743836f1803d44, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyes
+    second: {fileID: 2100000, guid: 413f0ed0dd6939c459e279552352175d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gbp
+    second: {fileID: 2100000, guid: 492912af3b07b8d409d77130f41c2023, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gbp_back
+    second: {fileID: 2100000, guid: 79dfdea2a7e860c469373c9427dfa3ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hair
+    second: {fileID: 2100000, guid: e02cf042a297ced4380cb9b5fc4a3014, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: head
+    second: {fileID: 2100000, guid: 4702836189605884fa93ea2fdc4cb01a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hoodie
+    second: {fileID: 2100000, guid: dd4ec862b386ddf4b815b218e86b9de3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mask
+    second: {fileID: 2100000, guid: f1c4d5010c0485049a5ba7fdd091de63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mask_emotes
+    second: {fileID: 2100000, guid: 341789f32a33c06418d9018236f5699e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mask_glass
+    second: {fileID: 2100000, guid: 1c11f9365362c7648b7d9f78cdcd1b14, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mask_part
+    second: {fileID: 2100000, guid: 94803eabbd548a646beffbc39ad868a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pants
+    second: {fileID: 2100000, guid: eb3929c52fa927f4197d160228141793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: red
+    second: {fileID: 2100000, guid: 92437c061b5b6c6429df3b1cfc8fa1c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: teeth
+    second: {fileID: 2100000, guid: 9987d40a446599846bbc6c7ce9d8d9fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vest
+    second: {fileID: 2100000, guid: 614f808a892e8114ba7f6f21f6e47757, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vest_red
+    second: {fileID: 2100000, guid: ecbee70a14636e94889ef0435d651dc2, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bodyacc_c
+    second: {fileID: 2800000, guid: 2a1d2b8deeb31d44b90b6a06620ce33e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bodyacc_m
+    second: {fileID: 2800000, guid: 7fb832e52043e7f409222f2ffd4659a4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bodyacc_r
+    second: {fileID: 2800000, guid: 3aace689b449ce44698701172bd02c66, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: boots_c
+    second: {fileID: 2800000, guid: 1b72ac9885a311b4cb9ea6a79a668bc8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: boots_m
+    second: {fileID: 2800000, guid: 68d8cb10bfeca1a4f99e69b03aa5a1ca, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: boots_r
+    second: {fileID: 2800000, guid: f31e4a55e3cf9c143b118a4ace4ef13b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bracelet_c
+    second: {fileID: 2800000, guid: 31876f7b19092e54981da3749cc14e6f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bracelet_m
+    second: {fileID: 2800000, guid: 17801e9de885a844181b8f4141c70f03, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bracelet_r
+    second: {fileID: 2800000, guid: 6df84aa612c7656449ca4515b4e1c1d1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: emotes_alpha
+    second: {fileID: 2800000, guid: 7fd8da7cc84763f469f161a2c7f57754, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: emotes_c
+    second: {fileID: 2800000, guid: 1c105db727762dd499e32d1df42bb438, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: eyelashes_c
+    second: {fileID: 2800000, guid: dc026c9a772416d4299d1691647c11d8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: eyelashes_n
+    second: {fileID: 2800000, guid: d33aa3ad8a1c5784eb24841155203bac, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: eyes_c
+    second: {fileID: 2800000, guid: 382e5c1b2f3f041408f30b2ded403085, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: gbp_ears_tail_c
+    second: {fileID: 2800000, guid: 822951c6f6fc20d4388fd8fb933d9141, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: gbp_hologram
+    second: {fileID: 2800000, guid: 2ce717ae4bb2a2545ab68d377c64110a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: hair_c
+    second: {fileID: 2800000, guid: c99cc1036d9b690499d87d62564f3578, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: hair_n
+    second: {fileID: 2800000, guid: 8e5e24530b253ef48a13b5d6b241ff0d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: hoodie_c
+    second: {fileID: 2800000, guid: 0adfd106e2103e046a7bbf08714216b8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: hoodie_m
+    second: {fileID: 2800000, guid: 25f952aaf50749f499a500c0322f3d8b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: hoodie_r
+    second: {fileID: 2800000, guid: 0e84f34059b466b42917fbd0989fc992, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: mask_brdf
+    second: {fileID: 2800000, guid: 36d91848172cdc740932ddcb63aeb5fa, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: mask_c
+    second: {fileID: 2800000, guid: 6b90c641e241bea428fbb39928cd674a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: mask_m
+    second: {fileID: 2800000, guid: 2fde4010b0120d44da918dcd61fe9d8f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: mask_r
+    second: {fileID: 2800000, guid: 47934bd9e05e925409f525f96cae1f18, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: maskpart_c
+    second: {fileID: 2800000, guid: 39b6b13e829838345bddb6de87e7c9d6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pants_c
+    second: {fileID: 2800000, guid: b17ca35e2378453469020edefd082b43, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pants_m
+    second: {fileID: 2800000, guid: ee3205b8ec35424458da2d69c3eb64e7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pants_r
+    second: {fileID: 2800000, guid: 6347d0d747261ef49bcd32022ed8124c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pants_s
+    second: {fileID: 2800000, guid: c065ae1fdcaa9854fba533e2f81220ee, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: teeth_brdf
+    second: {fileID: 2800000, guid: cf928c35dee064a46b4ea5eeb309abfc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: teeth_c
+    second: {fileID: 2800000, guid: 941fb15b648cac441b77cdeb18db6d1f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: teeth_s
+    second: {fileID: 2800000, guid: 741ef239b29cc8b4e8aee01e80c05c8b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: vest_c
+    second: {fileID: 2800000, guid: db4974347b2a4754bafe96d1bb3ce7ed, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: vest_m
+    second: {fileID: 2800000, guid: 90ea948cb657d5346ba5def280a2fecf, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: vest_r
+    second: {fileID: 2800000, guid: 6034dc2410a62494189919c5426a4f32, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: vest_red
+    second: {fileID: 2800000, guid: 007fdded0a2bec74c9e15ee8b1bb1f57, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
