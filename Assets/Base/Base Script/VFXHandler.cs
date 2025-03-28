@@ -5,18 +5,18 @@ public class VFXHandler : MonoBehaviour
 {
     [SerializeField] private ParticleSystem powerUpParticle;
     [SerializeField] private ParticleSystem powerUpIndicatorParticle;
-    [SerializeField] private PlayerMovement playerMovement;
+    [FormerlySerializedAs("playerMovement")] [SerializeField] private Player player;
 
     private void Start()
     {
-        playerMovement.onVFXTriggered += StartAnimation;
+        player.onVFXTriggered += StartAnimation;
     }
 
     private void OnDestroy()
     {
-        if (playerMovement != null)
+        if (player != null)
         {
-            playerMovement.onVFXTriggered -= StartAnimation;
+            player.onVFXTriggered -= StartAnimation;
         }
     }
 

@@ -2,9 +2,10 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] private float speed = 100;
+    [SerializeField] private float runSpeed = 2;
     [SerializeField] private Transform _camera;
     [SerializeField] private Animator animator;
     [SerializeField] private float powerUpDuration = 5;
@@ -88,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Player Mati, event onPlayerDeath terpanggil");
+        Debug.Log("Player Mati");
         onPlayerDeath?.Invoke();
     }
 
@@ -96,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = IsGrounded();
         animator.SetBool("isGrounded", isGrounded);
+        Debug.Log("isGrounded? "+isGrounded);
 
         var horizontal = Input.GetAxis("Horizontal");
         var vertical = Input.GetAxis("Vertical");
@@ -103,12 +105,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             animator.SetBool("isRunning", true);
-            speed *= 2;
+            speed *= runSpeed;
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             animator.SetBool("isRunning", false);
-            speed /= 2;
+            speed /= runSpeed;
         }
         else if (Input.GetKeyDown(KeyCode.C) && !Input.GetKeyDown(KeyCode.LeftShift))
         {

@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 public class PickableManager : MonoBehaviour
 {
     [SerializeField] private List<Pickable> pickableList = new();
-    [SerializeField] private PlayerMovement playerMovement;
+     [SerializeField] private Player player;
     [SerializeField] private GameUIManager scoreManager;
 
     private void Start()
@@ -33,7 +33,7 @@ public class PickableManager : MonoBehaviour
 
         if (pickable.PickableType == PickableTypes.PowerUp)
         {
-            playerMovement.PickPowerUp();
+            player.PickPowerUp();
             Debug.Log("PowerUp PickedUp!");
         }
 

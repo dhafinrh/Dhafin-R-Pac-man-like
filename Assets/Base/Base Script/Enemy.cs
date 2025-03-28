@@ -2,12 +2,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private List<Transform> waypoints = new();
     [SerializeField] private float chaseDistance;
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private Player player;
     [SerializeField] private TMP_Text stateText;
     [HideInInspector] public Animator animator;
     [HideInInspector] public NavMeshAgent enemyAgent;
@@ -20,7 +21,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public RetreatState retreatState = new();
 
     public List<Transform> Waypoints => waypoints;
-    public PlayerMovement PlayerMovement => playerMovement;
+    public Player Player => player;
     public float ChaseDistance => chaseDistance;
 
 
@@ -36,10 +37,10 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        if (playerMovement != null)
+        if (player != null)
         {
-            playerMovement.onPowerUpStart += StartRetreat;
-            playerMovement.onPowerUpStop += StopRetreat;
+            player.onPowerUpStart += StartRetreat;
+            player.onPowerUpStop += StopRetreat;
         }
     }
 
@@ -96,10 +97,10 @@ public class Enemy : MonoBehaviour
         if (isDestroyed) return; 
 
         isDestroyed = true;
-        if (playerMovement != null)
+        if (player != null)
         {
-            playerMovement.onPowerUpStart -= StartRetreat;
-            playerMovement.onPowerUpStop -= StopRetreat;
+            player.onPowerUpStart -= StartRetreat;
+            player.onPowerUpStop -= StopRetreat;
         }
         
         gameObject.SetActive(false);
