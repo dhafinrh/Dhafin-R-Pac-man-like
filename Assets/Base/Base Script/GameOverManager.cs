@@ -11,7 +11,7 @@ public class GameOverManager : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene("NewGameplay");
     }
 
     public void LoadMainMenu()

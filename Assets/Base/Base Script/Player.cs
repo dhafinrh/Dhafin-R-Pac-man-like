@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform _camera;
     [SerializeField] private Animator animator;
     [SerializeField] private float powerUpDuration = 5;
+    [SerializeField] private AudioSource powerUpSFX;
+    [SerializeField] private AudioSource deadAudioSource;
+
 
     [Header("Ground Check Settings")] 
     
@@ -52,6 +55,7 @@ public class Player : MonoBehaviour
         if (isPowerUpActive && collision.gameObject.CompareTag("Enemy"))
         {
             onVFXTriggered.Invoke();
+            deadAudioSource.Play();
             collision.gameObject.GetComponent<Enemy>().Dead();
         }
     }
@@ -80,6 +84,7 @@ public class Player : MonoBehaviour
     private IEnumerator StartPowerUp()
     {
         isPowerUpActive = true;
+        powerUpSFX.Play();
         onPowerUpStart?.Invoke();
         onVFXTriggered.Invoke();
         yield return new WaitForSeconds(powerUpDuration);

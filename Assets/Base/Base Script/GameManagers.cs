@@ -3,16 +3,20 @@ using UnityEngine;
 public class GameManagers : MonoBehaviour
 {
     [SerializeField] private SceneManagers sceneManagers;
-    [SerializeField] private Player player;
+    [SerializeField] private PlayerHealth player;
 
     private void Awake()
     {
-        if (player != null) player.onPlayerDeath += HandlePlayerDeath;
+        if (player != null)
+        {
+            player.OnPlayerDeath += HandlePlayerDeath;
+            Debug.Log("Sudah Subs OnPlayerDeath");
+        }
     }
 
     private void OnDestroy()
     {
-        if (player != null) player.onPlayerDeath -= HandlePlayerDeath;
+        if (player != null) player.OnPlayerDeath -= HandlePlayerDeath;
     }
 
     private void HandlePlayerDeath()

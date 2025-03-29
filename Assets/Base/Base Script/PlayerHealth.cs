@@ -49,5 +49,5 @@ public class PlayerHealth : MonoBehaviour, IHealth, IDamageable
         OnHealthChanged?.Invoke(Health, MaxHealth);
     }
 
-    public static event Action OnPlayerDeath;
+    public  event Action OnPlayerDeath;
 }

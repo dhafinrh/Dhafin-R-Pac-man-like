@@ -8,6 +8,7 @@ public class PickableManager : MonoBehaviour
     [SerializeField] private List<Pickable> pickableList = new();
      [SerializeField] private Player player;
     [SerializeField] private GameUIManager scoreManager;
+    [SerializeField] private AudioSource coinSFX;
 
     private void Start()
     {
@@ -30,7 +31,7 @@ public class PickableManager : MonoBehaviour
     private void OnPickablePicked(Pickable pickable)
     {
         pickableList.Remove(pickable);
-
+        coinSFX.Play();
         if (pickable.PickableType == PickableTypes.PowerUp)
         {
             player.PickPowerUp();

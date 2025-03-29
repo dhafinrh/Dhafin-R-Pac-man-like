@@ -5,6 +5,7 @@ public class ChaseState : IBaseState
     public void EnterState(Enemy enemy, Animator animator)
     {
         animator.SetBool("isRunning", true);
+        enemy.alertAudioSource.Play();
     }
 
     public void UpdateState(Enemy enemy)

@@ -1,8 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
 
 public class Enemy : MonoBehaviour
 {
@@ -16,13 +16,17 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public ChaseState chaseState = new();
 
     private IBaseState currentState;
-    private bool isDestroyed = false;
+    private bool isDestroyed;
     [HideInInspector] public PatrolState patrolState = new();
     [HideInInspector] public RetreatState retreatState = new();
 
+    [SerializeField] private AudioSource IdleAudioSource;
+    [SerializeField] private Vector2 intervalRange = new(5f, 10f);
+    public AudioSource alertAudioSource;
     public List<Transform> Waypoints => waypoints;
     public Player Player => player;
     public float ChaseDistance => chaseDistance;
+    public static bool CanPlaySound = true;
 
 
     public void Awake()
@@ -33,6 +37,7 @@ public class Enemy : MonoBehaviour
         currentState = patrolState;
         currentState.EnterState(this, animator);
         UpdateStateText();
+        StartCoroutine(PlaySoundRandomly());
     }
 
     private void Start()
@@ -46,7 +51,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (isDestroyed) return; 
+        if (isDestroyed) return;
 
         if (currentState != null)
             currentState.UpdateState(this);
@@ -94,7 +99,7 @@ public class Enemy : MonoBehaviour
 
     public void Dead()
     {
-        if (isDestroyed) return; 
+        if (isDestroyed) return;
 
         isDestroyed = true;
         if (player != null)
@@ -102,7 +107,21 @@ public class Enemy : MonoBehaviour
             player.onPowerUpStart -= StartRetreat;
             player.onPowerUpStop -= StopRetreat;
         }
-        
+
         gameObject.SetActive(false);
+    }
+    
+    private IEnumerator PlaySoundRandomly()
+    {
+        while (true)
+        {
+            float waitTime = Random.Range(intervalRange.x, intervalRange.y);
+            yield return new WaitForSeconds(waitTime);
+
+            if (CanPlaySound && IdleAudioSource != null)
+            {
+                IdleAudioSource.Play();
+            }
+        }
     }
 }
